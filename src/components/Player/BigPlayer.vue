@@ -21,10 +21,13 @@
       </Transition>
 
       <template v-if="setting.backgroundImageShow === 'eplor'">
-        <BackgroundRender :fps="music.getPlayState ? setting.fps : 0"
+        <BackgroundRender 
+          :fps="music.getPlayState ? setting.fps : 0"
+          :playing="music.getPlayState"
           :flowSpeed="music.getPlayState ? (setting.dynamicFlowSpeed ? dynamicFlowSpeed : setting.flowSpeed) : 0"
           :album="setting.albumImageUrl === 'none' ? music.getPlaySongData.album.picUrl.replace(/^http:/, 'https:') : setting.albumImageUrl"
-          :renderScale="setting.renderScale" class="overlay" />
+          :renderScale="setting.renderScale" 
+          class="overlay" />
       </template>
       <div :class="setting.backgroundImageShow === 'blur' ? 'gray blur' : 'gray'" />
       <div class="icon-menu">
@@ -294,7 +297,7 @@ watch(
 // 监听频谱更新
 watch(() => music.getSpectrumsData, throttle(200, (val) => {
   if (!music.getPlayState || !setting.dynamicFlowSpeed) return;
-  const variance = Math.max(Math.round(analyzeAudioIntensity(val) * setting.dynamicFlowSpeedScale), 6)
+  const variance = Math.max(Math.round(analyzeAudioIntensity(val) * setting.dynamicFlowSpeedScale * 7), 6)
   dynamicFlowSpeed.value = variance
 }))
 
@@ -484,6 +487,7 @@ watch(
     &.noLrc {
       .left {
         padding-right: 0;
+        width: 50%;
         transform: translateX(25vh);
 
         @media (max-width: 1200px) {
@@ -521,7 +525,6 @@ watch(
         .lrcShow {
           .lrc-all {
             height: 70vh !important;
-            // padding-right: 16% !important;
             margin-right: 0 !important;
           }
 
@@ -554,10 +557,8 @@ watch(
     }
 
     .left {
-      // flex: 1;
-      // padding: 0 4vw;
       transform: translateX(0);
-      width: 50%;
+      width: 40%;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
@@ -571,7 +572,6 @@ watch(
       transform: translateX(0);
       flex: 1;
       height: 100%;
-      padding-left: 2vw;
 
       .lrcShow {
         height: 100%;
