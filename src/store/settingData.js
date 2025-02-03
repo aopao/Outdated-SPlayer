@@ -42,9 +42,9 @@ const useSettingDataStore = defineStore("settingData", {
       // 歌词大小
       lyricsFontSize: 3.6,
       // 歌词字体
-      lyricFont: 'HarmonyOS Sans SC',
+      lyricFont: 'PingFang SC',
       // 歌词字重
-      lyricFontWeight: 'normal',
+      lyricFontWeight: 'bold',
       // 歌词字间距
       lyricLetterSpacing: 'normal',
       // 歌词行高
