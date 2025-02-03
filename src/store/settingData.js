@@ -26,7 +26,7 @@ const useSettingDataStore = defineStore("settingData", {
       // 是否显示逐字歌词
       showYrc: true,
       // 是否显示逐字歌词动画
-      showYrcAnimation: true,
+      showYrcAnimation: false,
       // 是否显示逐字歌词上浮
       showYrcTransform: false,
       // 是否显示歌词翻译
@@ -50,7 +50,7 @@ const useSettingDataStore = defineStore("settingData", {
       // 歌词行高
       lyricLineHeight: 1.8,
       // 歌词模糊
-      lyricsBlur: true,
+      lyricsBlur: false,
       // 音乐频谱
       musicFrequency: true,
       // 鼠标移入歌词区域暂停滚动
@@ -70,7 +70,7 @@ const useSettingDataStore = defineStore("settingData", {
       // 是否显示前奏等待
       countDownShow: true,
       // 是否显示歌词设置
-      showLyricSetting: false,
+      showLyricSetting: true,
       // 歌曲渐入渐出
       songVolumeFade: true,
       // 列表默认数量
