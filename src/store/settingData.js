@@ -30,9 +30,9 @@ const useSettingDataStore = defineStore("settingData", {
       // 是否显示逐字歌词上浮
       showYrcTransform: false,
       // 是否显示歌词翻译
-      showTransl: false,
+      showTransl: true,
       // 是否显示歌词音译
-      showRoma: false,
+      showRoma: true,
       // 歌曲音质
       songLevel: "exhigh",
       // 歌词位置
